@@ -29,7 +29,7 @@ class policykit (
 
   file { $policykit::params::policykit_local_path:
     ensure  => directory,
-    require => Package['policykit'],
+    require => Package[$policykit::params::policykit_package],
   }
 
   create_resources('policykit::localauthority', $localauthorities)
